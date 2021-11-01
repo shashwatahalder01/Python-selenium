@@ -313,6 +313,7 @@ class BasePage(object):
         actions = ActionChains(self.driver)
         actions.move_to_element(element)
         actions.perform()
+        sleep(1)
 
     # move cursor to element with offset
     def move_cursor_to_element_offset(self, x_offset, y_offset, *locator):

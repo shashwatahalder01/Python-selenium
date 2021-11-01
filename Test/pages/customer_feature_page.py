@@ -19,6 +19,7 @@ class CustomerLocators(object):
     sh_shop = (By.XPATH, '//a[normalize-space()="sh-shop"]')
     add_to_cart = (By.XPATH, '//a[@class="cat btn add_to_cart_button button product_type_simple add_to_cart_button ajax_add_to_cart"]')
     view_cart = (By.XPATH, '//i[@class="fa fa-eye"]')
+    get_coupon_code = (By.XPATH, '(//span[@class="coupon-code"])[1]//strong')
     coupon_code = (By.XPATH, '//input[@id="coupon_code"]')
     apply_coupon = (By.XPATH, '//button[normalize-space()="Apply coupon"]')
 
@@ -42,9 +43,17 @@ class CustomerFeature(BasePage):
     def place_order(self):
         self.click(self.locator.store_list)
         self.click(self.locator.sh_shop)
+        sleep(5)
+        couponcode = self.get_text(self.locator.get_coupon_code)
+        sleep(1)
+        # self.move_cursor_to_element(self.locator.add_to_cart)
         self.click(self.locator.add_to_cart)
+        sleep(1)
+        # self.move_cursor_to_element(self.locator.view_cart)
         self.click(self.locator.view_cart)
-        self.clear_field_and_send_keys(self.data.vendor_username, self.locator.coupon_code)
+        sleep(1)
+        self.clear_field_and_send_keys(couponcode, self.locator.coupon_code)
+        sleep(1)
         self.click(self.locator.apply_coupon)
 
     # # Create Provider
