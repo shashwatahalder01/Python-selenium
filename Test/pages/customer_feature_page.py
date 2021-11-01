@@ -93,7 +93,7 @@ class CustomerFeature(BasePage):
         sleep(1)
         self.clear_field_and_send_keys(self.data.email, self.locator.email)
         sleep(1)
-        # self.click(self.locator.cash_on_delivery)
+        self.click(self.locator.cash_on_delivery)
         sleep(1)
         self.click(self.locator.place_order)
         sleep(5)

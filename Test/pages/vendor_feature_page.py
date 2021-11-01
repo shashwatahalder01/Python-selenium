@@ -10,7 +10,7 @@ class VendorData(object):
     vendor_username = "shashwatahalder01@gmail.com"
     vendor_password = "11Shashwata11"
     product_price = "200"
-    coupon_ammount = "100"
+    coupon_ammount = "40"
 
 
 class VendorLocators(object):
