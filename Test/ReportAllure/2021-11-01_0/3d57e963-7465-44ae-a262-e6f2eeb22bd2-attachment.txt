@@ -1,0 +1,9 @@
+[32mINFO    [0m WDM:logger.py:24 
+
+[32mINFO    [0m WDM:logger.py:24 ====== WebDriver manager ======
+[32mINFO    [0m WDM:logger.py:24 Current google-chrome version is 95.0.4638
+[32mINFO    [0m WDM:logger.py:24 Get LATEST driver version for 95.0.4638
+[32mINFO    [0m WDM:logger.py:24 There is no [linux64] chromedriver for browser 95.0.4638 in cache
+[32mINFO    [0m WDM:logger.py:24 Get LATEST driver version for 95.0.4638
+[32mINFO    [0m WDM:logger.py:24 Trying to download new driver from https://chromedriver.storage.googleapis.com/95.0.4638.54/chromedriver_linux64.zip
+[32mINFO    [0m WDM:logger.py:24 Driver has been saved in cache [/home/shashwata/.wdm/drivers/chromedriver/linux64/95.0.4638.54]

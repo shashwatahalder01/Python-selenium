@@ -1,0 +1,13 @@
+{
+  "access_token":"ya29.GlsyB8hJ41x5YXC5k2yUymrx5nKKaJoHO0GVgDILYwMEtIzXqEo8HivJoH0uCmdi11WRTHQYBKyUH7Lmqkr40VdokPmjZVLVU93w_XwgLLoYOhABqELaopKWUdDr",
+  "refresh_token":"1/ZMNFIBIQlyzArBUT6CRr0JaroovBlZptIX_UI6VMY6A",
+  "scope":"https://www.googleapis.com/auth/gmail.readonly",
+  "token_type":"Bearer",
+  "expiry_date":1561448664871,
+  "client_id":"649619701827-7s0ucl2iudfan7e9p2v8l1mvrc97tgci.apps.googleusercontent.com",
+  "project_id":"testautomation-1561444750112",
+  "auth_uri":"https://accounts.google.com/o/oauth2/auth",
+  "token_uri":"https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
+  "client_secret":"CdxmmKazBDBg4xIiCs5KyKTK"
+}
