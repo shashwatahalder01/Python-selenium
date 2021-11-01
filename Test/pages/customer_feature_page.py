@@ -7,6 +7,13 @@ import allure
 class customerData(object):
     vendor_username = "shashwatahalder02@gmail.com"
     vendor_password = "22Shashwata22"
+    first_name = 'sh'
+    last_name = 'halder'
+    address = 'Beverly Hills'
+    city = 'Beverly Hills'
+    post_code = '90011'
+    phone = '01234567891'
+    email = 'abc@gmail.com'
 
 
 class CustomerLocators(object):
@@ -22,6 +29,20 @@ class CustomerLocators(object):
     get_coupon_code = (By.XPATH, '(//span[@class="coupon-code"])[1]//strong')
     coupon_code = (By.XPATH, '//input[@id="coupon_code"]')
     apply_coupon = (By.XPATH, '//button[normalize-space()="Apply coupon"]')
+    proceed_to_checkout = (By.XPATH, '//a[normalize-space()="Proceed to checkout"]')
+    first_name = (By.XPATH, '//input[@id="billing_first_name"]')
+    last_name = (By.XPATH, '//input[@id="billing_last_name"]')
+    # country = (By.XPATH, '//span[@id="select2-billing_country-container"]')
+    # country_us = (By.XPATH, '//li[contains(text(),"United States (US)")]')
+
+    address = (By.XPATH, '//input[@id="billing_address_1"]')
+    city = (By.XPATH, '//input[@id="billing_city"]')
+    postcode = (By.XPATH, '//input[@id="billing_postcode"]')
+    phone = (By.XPATH, '//input[@id="billing_phone"]')
+    email = (By.XPATH, '//input[@id="billing_email"]')
+
+    cash_on_delivery = (By.XPATH, '//label[normalize-space()="Cash on delivery"]')
+    place_order = (By.XPATH, '//button[@id="place_order"]')
 
 
 class CustomerFeature(BasePage):
@@ -55,6 +76,27 @@ class CustomerFeature(BasePage):
         self.clear_field_and_send_keys(couponcode, self.locator.coupon_code)
         sleep(1)
         self.click(self.locator.apply_coupon)
+        sleep(4)
+        self.click(self.locator.proceed_to_checkout)
+        sleep(3)
+        self.clear_field_and_send_keys(self.data.first_name, self.locator.first_name)
+        sleep(1)
+        self.clear_field_and_send_keys(self.data.last_name, self.locator.last_name)
+        sleep(1)
+        self.clear_field_and_send_keys(self.data.address, self.locator.address)
+        sleep(1)
+        self.clear_field_and_send_keys(self.data.city, self.locator.city)
+        sleep(1)
+        self.clear_field_and_send_keys(self.data.post_code, self.locator.postcode)
+        sleep(1)
+        self.clear_field_and_send_keys(self.data.phone, self.locator.phone)
+        sleep(1)
+        self.clear_field_and_send_keys(self.data.email, self.locator.email)
+        sleep(1)
+        # self.click(self.locator.cash_on_delivery)
+        sleep(1)
+        self.click(self.locator.place_order)
+        sleep(5)
 
     # # Create Provider
     # @allure.step("verify provider creation form")

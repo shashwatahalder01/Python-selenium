@@ -10,6 +10,7 @@ class VendorData(object):
     vendor_username = "shashwatahalder01@gmail.com"
     vendor_password = "11Shashwata11"
     product_price = "200"
+    coupon_ammount = "100"
 
 
 class VendorLocators(object):
@@ -33,6 +34,10 @@ class VendorLocators(object):
     show_on_store = (By.XPATH, '//input[@id="checkboxes-3"]')
     create_coupon = (By.XPATH, '//input[@name="coupon_creation"]')
 
+    # orders = (By.XPATH, '//li[@class="active orders"]//a')
+    orders = (By.XPATH, '//ul[@class="dokan-dashboard-menu"]//a[contains(text(), "Orders")]')
+    complete = (By.XPATH, '//a[@data-original-title="Complete"]')
+
 
 class VendorFeature(BasePage):
     def __init__(self, driver):
@@ -53,14 +58,14 @@ class VendorFeature(BasePage):
         print('successfully logged-In')
 
     @staticmethod
-    def random_product(self, length):
+    def random_product(length):
         letters = string.ascii_lowercase
         return ''.join(random.choice(letters) for i in range(length))
 
     def add_product(self):
         self.click(self.locator.products)
         self.click(self.locator.add_new_product)
-        self.clear_field_and_send_keys(self.random_product(8), self.locator.product_name)
+        self.clear_field_and_send_keys(f'Shirt_{self.random_product(3)}', self.locator.product_name)
         self.clear_field_and_send_keys(self.data.product_price, self.locator.product_price)
         self.click(self.locator.product_category)
         sleep(1)
@@ -70,7 +75,7 @@ class VendorFeature(BasePage):
         sleep(2)
 
     @staticmethod
-    def random_coupon(self, length):
+    def random_coupon(length):
         letters = string.ascii_lowercase
         return ''.join(random.choice(letters) for i in range(length))
 
@@ -78,11 +83,15 @@ class VendorFeature(BasePage):
         self.click(self.locator.coupons)
         self.click(self.locator.add_new_coupon)
         self.clear_field_and_send_keys(f'SH_{self.random_coupon(3)}', self.locator.coupon_title)
-        self.clear_field_and_send_keys(self.data.product_price, self.locator.coupon_amount)
+        self.clear_field_and_send_keys(self.data.coupon_ammount, self.locator.coupon_amount)
         self.click(self.locator.coupon_product)
         self.click(self.locator.show_on_store)
         self.click(self.locator.create_coupon)
         sleep(1)
+
+    def update_order_status(self):
+        self.click(self.locator.orders)
+        self.click(self.locator.complete)
 
     # def invalid_logIn(self, email, password):
     #     self.clear_field_and_send_keys(email, *self.locator.email)
